@@ -55,7 +55,7 @@ export class Books extends Component {
       );
     }
     return (
-      <div className="text-center">
+      <div>
         <BookListItem
           data={this.state.paginatedGroup}
           editMode={this.props.editMode}

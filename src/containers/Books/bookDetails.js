@@ -70,11 +70,10 @@ export class BookDetails extends Component {
       <div>
         <div className=" d-flex flex-row">
           <div className="col col-lg-9 col-md-8">
-            <div
-              className="row"
-              style={{ marginLeft: "2px", justifyContent: "space-between" }}
-            >
-              <h2 className="card-title h5">{this.state.bookDetails.title}</h2>
+            <div className="row" style={{ marginLeft: "2px" }}>
+              <h2 className="card-title h5 mr-3">
+                {this.state.bookDetails.title}
+              </h2>
               {this.props.editMode && (
                 <Link to={`/book/${this.state.bookDetails.id}/edit`}>
                   <Button
