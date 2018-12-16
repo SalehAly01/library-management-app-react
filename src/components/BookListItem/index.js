@@ -13,7 +13,7 @@ const BookListItem = props => {
         >
           <Link to={`/book/${book.id}`}>
             <h3
-              className="card-title h5"
+              className="card-title h5 text-left"
               style={{
                 maxWidth: "525px"
               }}
