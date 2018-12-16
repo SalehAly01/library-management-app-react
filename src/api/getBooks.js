@@ -1,8 +1,8 @@
 import axios from "./axiosInstance";
 
-export default function getCategories() {
+export default function getBooks() {
   return axios.request({
     method: "GET",
-    url: "/categories"
+    url: "/books"
   });
 }
