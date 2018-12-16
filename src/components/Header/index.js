@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Button } from "reactstrap";
 import { NavLink as RRNavLink } from "react-router-dom";
+import { Button, Nav, Navbar, NavbarBrand, NavItem, NavLink } from "reactstrap";
 
 const Header = props => (
   <div>
