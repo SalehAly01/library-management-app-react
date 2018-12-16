@@ -15,10 +15,7 @@ const BookListItem = props => {
             <h3
               className="card-title h5"
               style={{
-                maxWidth: "525px",
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis"
+                maxWidth: "525px"
               }}
             >
               {book.title}
