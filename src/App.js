@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Main from "./components/Main";
+import Header from "./components/Header";
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header
+          editMode={this.state.editMode}
+          toggleEditStatus={this.toggleEditStatus}
+        />
         <Main editMode={this.state.editMode} />
       </div>
     );
