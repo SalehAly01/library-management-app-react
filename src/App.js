@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
+import getAuthors from "./api/getAuthors";
 import getCategories from "./api/getCategories";
 import "./App.css";
 import Aside from "./components/Aside";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import getAuthors from "./api/getAuthors";
 
 class App extends Component {
   constructor(props) {
@@ -51,7 +51,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{ backgroundColor: "#CCC" }}>
+      <div
+        className="App"
+        style={{ backgroundColor: "#CCC", paddingTop: "58px" }}
+      >
         <Header
           editMode={this.state.editMode}
           toggleEditStatus={this.toggleEditStatus}

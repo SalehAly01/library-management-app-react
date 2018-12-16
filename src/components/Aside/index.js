@@ -4,7 +4,7 @@ import { Card, CardBody, CardHeader } from "reactstrap";
 
 const Aside = props => (
   <Card className="mb-2">
-    <CardHeader className="bg-info">{props.title}</CardHeader>
+    <CardHeader className="bg-info text-light">{props.title}</CardHeader>
     <CardBody className="text-left ml-3">
       <ul className="list-group">
         {props.data.map(item => (
