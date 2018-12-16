@@ -1,64 +1,65 @@
 import React from "react";
 import { NavLink as RRNavLink } from "react-router-dom";
-import { Button, Nav, Navbar, NavbarBrand, NavItem, NavLink } from "reactstrap";
+import {
+  Button,
+  Collapse,
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler
+} from "reactstrap";
+import NavBarItem from "./NavBarItem";
 
-const Header = props => (
-  <div>
-    <Navbar
-      className="navbar navbar-dark"
-      expand="md"
-      style={{ backgroundColor: props.editMode ? "#6F1E51" : "#353b48" }}
-    >
-      <NavbarBrand tag={RRNavLink} to="/">
-        Book Listing
-        {props.editMode && (
-          <Button size="sm" color="danger" className="ml-2" disabled>
-            Edit Mode
-          </Button>
-        )}
-      </NavbarBrand>
-      <Nav className="ml-auto" pills>
-        <NavItem>
-          <NavLink
-            tag={RRNavLink}
-            className="nav-link"
-            to="/books/new"
-            activeClassName="active"
-          >
-            New Book
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            tag={RRNavLink}
-            className="nav-link"
-            to="/authors/new"
-            activeClassName="active"
-          >
-            New Author
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            tag={RRNavLink}
-            className="nav-link"
-            to="/categories/new"
-            activeClassName="active"
-          >
-            New Category
-          </NavLink>
-        </NavItem>
-        <Button
-          size="sm"
-          color={props.editMode ? "info" : "danger"}
-          className="ml-2"
-          onClick={() => props.toggleEditStatus()}
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Navbar
+          className="navbar navbar-dark fixed-top"
+          expand="md"
+          style={{
+            backgroundColor: this.props.editMode ? "#6F1E51" : "#353b48"
+          }}
         >
-          {props.editMode ? "Exit Edit Mode" : "Edit Mode"}
-        </Button>
-      </Nav>
-    </Navbar>
-  </div>
-);
-
-export default Header;
+          <NavbarBrand tag={RRNavLink} to="/">
+            Book Listing
+            {this.props.editMode && (
+              <Button size="sm" color="danger" className="ml-2" disabled>
+                Edit Mode
+              </Button>
+            )}
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto mt-1" navbar>
+              <NavBarItem name="Book" type="books" />
+              <NavBarItem name="Author" type="authors" />
+              <NavBarItem name="Category" type="categories" />
+              <Button
+                size="sm"
+                color={this.props.editMode ? "info" : "danger"}
+                className="mr-2 rounded"
+                onClick={() => this.props.toggleEditStatus()}
+              >
+                {this.props.editMode ? "Exit Edit Mode" : "Edit Mode"}
+              </Button>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
+}
