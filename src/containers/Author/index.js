@@ -18,20 +18,21 @@ export class Author extends Component {
   }
 
   componentDidMount() {
-    this.setState(
-      { authorID: this.getAuthorIdFromAddress() },
-      this.getAuthorData
-    );
+    this.setAuthorID();
   }
 
   componentDidUpdate() {
     const pathName = this.getAuthorIdFromAddress();
     if (pathName !== this.state.authorID) {
-      this.setState(
-        { authorID: this.getAuthorIdFromAddress() },
-        this.getAuthorData
-      );
+      this.setAuthorID();
     }
+  }
+
+  setAuthorID() {
+    this.setState(
+      { authorID: this.getAuthorIdFromAddress() },
+      this.getAuthorData
+    );
   }
 
   getAuthorIdFromAddress() {
@@ -109,12 +110,24 @@ export class Author extends Component {
           aria-label="Page navigation"
           style={{ justifyContent: "center", marginTop: "5px" }}
         >
-          <PaginationItem disabled>
-            <PaginationLink previous href="#" />
+          <PaginationItem disabled={this.state.activePage === 1}>
+            <PaginationLink
+              previous
+              onClick={() =>
+                this.handlePageNumberClick(this.state.activePage - 1)
+              }
+            />
           </PaginationItem>
           {pagesArray}
-          <PaginationItem>
-            <PaginationLink next href="#" />
+          <PaginationItem
+            disabled={this.state.activePage === this.state.pagesCount}
+          >
+            <PaginationLink
+              next
+              onClick={() =>
+                this.handlePageNumberClick(this.state.activePage + 1)
+              }
+            />
           </PaginationItem>
         </Pagination>
       </div>
