@@ -41,14 +41,24 @@ const Main = props => (
       <Route
         exact
         path="/author/:id"
-        render={() => <Author editMode={props.editMode} />}
+        render={() => (
+          <Author
+            editMode={props.editMode}
+            updateAuthors={props.updateAuthors}
+          />
+        )}
       />
       <Route exact path="/authors/new" component={AddAuthor} />
       <Route exact path="/author/:id/edit" component={EditAuthor} />
       <Route
         exact
         path="/category/:id"
-        render={() => <Category editMode={props.editMode} />}
+        render={() => (
+          <Category
+            editMode={props.editMode}
+            updateCategories={props.updateCategories}
+          />
+        )}
       />
       <Route exact path="/categories/new" component={AddCategory} />
       <Route exact path="/category/:id/edit" component={EditCategory} />

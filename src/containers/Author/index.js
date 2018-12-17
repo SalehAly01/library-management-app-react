@@ -19,6 +19,7 @@ export class Author extends Component {
 
   componentDidMount() {
     this.setAuthorID();
+    this.props.updateAuthors();
   }
 
   componentDidUpdate() {

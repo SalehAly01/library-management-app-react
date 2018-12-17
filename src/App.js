@@ -16,6 +16,8 @@ class App extends Component {
       authors: []
     };
     this.toggleEditStatus = this.toggleEditStatus.bind(this);
+    this.getCategoriesData = this.getCategoriesData.bind(this);
+    this.getAuthorsData = this.getAuthorsData.bind(this);
   }
 
   componentDidMount() {
@@ -74,6 +76,8 @@ class App extends Component {
                 editMode={this.state.editMode}
                 authors={this.state.authors}
                 categories={this.state.categories}
+                updateCategories={this.getCategoriesData}
+                updateAuthors={this.getAuthorsData}
               />
             </Col>
           </Row>
