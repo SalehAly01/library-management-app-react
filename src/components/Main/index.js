@@ -24,8 +24,20 @@ const Main = props => (
         path="/book/:id"
         render={() => <BookDetails editMode={props.editMode} />}
       />
-      <Route exact path="/books/new" component={AddBook} />
-      <Route exact path="/book/:id/edit" component={EditBook} />
+      <Route
+        exact
+        path="/books/new"
+        render={() => (
+          <AddBook authors={props.authors} categories={props.categories} />
+        )}
+      />
+      <Route
+        exact
+        path="/book/:id/edit"
+        render={() => (
+          <EditBook authors={props.authors} categories={props.categories} />
+        )}
+      />
       <Route
         exact
         path="/author/:id"

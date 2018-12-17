@@ -70,7 +70,11 @@ class App extends Component {
               <Aside data={this.state.authors} title="Authors" type="author" />
             </Col>
             <Col lg="8" md="8" sm="4">
-              <Main editMode={this.state.editMode} />
+              <Main
+                editMode={this.state.editMode}
+                authors={this.state.authors}
+                categories={this.state.categories}
+              />
             </Col>
           </Row>
         </Container>
