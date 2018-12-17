@@ -18,6 +18,7 @@ export class Category extends Component {
 
   componentDidMount() {
     this.setCategoryID();
+    this.props.updateCategories();
   }
 
   componentDidUpdate() {
