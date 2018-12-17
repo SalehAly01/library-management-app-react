@@ -64,6 +64,7 @@ const BookForm = props => (
         required
         type="textarea"
         name="text"
+        rows={8}
         value={props.state.description}
         id="description"
         placeholder="Add book Description"

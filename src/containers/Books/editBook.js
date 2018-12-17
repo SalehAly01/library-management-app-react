@@ -70,8 +70,7 @@ export class EditBook extends Component {
     };
     editBook(data, this.state.bookID)
       .then(response => {
-        const bookID = response.data.id;
-        history.push(`/book/${bookID}`);
+        history.push(`/book/${this.state.bookID}`);
       })
       .catch(err => {
         console.log(err);
