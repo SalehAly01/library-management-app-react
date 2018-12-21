@@ -47,13 +47,10 @@ export class Author extends Component {
         const books = response.data.books;
         const pagesCount = Math.ceil(books.length / 6);
         this.setState({
+          authorData,
           books,
           pagesCount,
           paginatedGroup: books.slice(0, 7)
-        });
-
-        this.setState({
-          authorData
         });
       })
       .catch(err => {
