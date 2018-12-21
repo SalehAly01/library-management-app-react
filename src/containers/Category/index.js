@@ -46,13 +46,10 @@ export class Category extends Component {
         const books = response.data.books;
         const pagesCount = Math.ceil(books.length / 6);
         this.setState({
+          categoryData,
           books,
           pagesCount,
           paginatedGroup: books.slice(0, 7)
-        });
-
-        this.setState({
-          categoryData
         });
       })
       .catch(err => {
